@@ -1,21 +1,19 @@
 package rrhh;
 
 public class AltaEmpleadoService {
+    private RepositorioEmpleado repositorio = null;
+    private GeneradorContraseña generador = null;
 
-    private final RepositorioEmpleadosEnMemoria repositorio = new RepositorioEmpleadosEnMemoria();
-    private final GeneradorPasswordSimple generadorPassword = new GeneradorPasswordSimple();
+    // Inyección por constructor: el servicio no sabe qué implementación usa
+    public AltaEmpleadoService() {
+        this.repositorio = repositorio;
+        this.generador = generador;
+    }
 
-    public Empleado alta(String dni, String nombre) {
-        if (dni == null || dni.isBlank()) throw new IllegalArgumentException("DNI requerido");
-        if (repositorio.existe(dni)) throw new IllegalStateException("Ya existe empleado");
-
-        String passwordTemporal = generadorPassword.generar();
-        Empleado e = new Empleado(dni, nombre, passwordTemporal);
-
-        repositorio.guardar(e);
-
-        // Simulación de “envío” (sin I/O real)
-        System.out.println("Creado usuario para " + nombre + " con password temporal: " + passwordTemporal);
-        return e;
+    public void alta(String dni, String nombre) {
+        String password = generador.generar();
+        Empleado nuevo = new Empleado(dni, nombre, password);
+        repositorio.guardar(nuevo);
+        System.out.println("Alta procesada para: " + nombre);
     }
 }

@@ -1,17 +1,13 @@
 package rrhh;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-public class RepositorioEmpleadosEnMemoria {
-
-    private final Map<String, Empleado> bd = new HashMap<>();
-
-    public boolean existe(String dni) {
-        return bd.containsKey(dni);
-    }
-
-    public void guardar(Empleado e) {
-        bd.put(e.getDni(), e);
+public abstract class RepositorioEmpleadosEnMemoria implements RepositorioEmpleado {
+    private List<Empleado> empleados = new ArrayList<>();
+    @Override
+    public void guardar(Empleado empleado) {
+        empleados.add(empleado);
+        System.out.println("Empleado guardado en memoria: " + empleado.getNombre());
     }
 }

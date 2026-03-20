@@ -1,10 +1,8 @@
 package rrhh;
 
-import java.util.UUID;
-
-public class GeneradorPasswordSimple {
-
+public class GeneradorPasswordSimple implements GeneradorContraseña {
+    @Override
     public String generar() {
-        return UUID.randomUUID().toString().substring(0, 8);
+        return "1234"; // Lógica simple actual
     }
 }
