@@ -9,9 +9,9 @@ El objetivo no es “reescribirlo todo”, sino **identificar el principio vulne
 - **Alfonso Jiménez Vílchez** - [@sambrista](https://github.com/sambrista)
 
 ## Alumnos
+**Tomás Pérez Reche** - [@tprxd07](https://github.com/tprxd07)
 
-Tomás Pérez Reche - @tprxd07
-Jose Luis Moreno Dobao - @JL-MD
+**José Luis Moreno Dobao** - [@JL-MD](https://github.com/JL-MD)
 
 ---
 
